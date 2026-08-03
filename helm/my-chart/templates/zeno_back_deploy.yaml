@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: zenoback
-        image: avi03/zenobackend:v1
+        image: avi03/zenobackend:{{ .Values.backend.image.tag }}
         ports:
         - containerPort: 8000
         env:

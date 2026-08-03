@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: zenofront
-        image: avi03/zenofront:v1
+        image: avi03/zenofront:{{ .Values.frontend.image.tag }}
         ports:
         - containerPort: 80
         # env:

@@ -7,7 +7,7 @@ on:
     paths-ignore:
       - "README.md"
       - "docs/**"
-      - "helm/**"
+    #   - "helm/**"
       - "k8s/**"
 
 

@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: zenoback-config
+data:
+  PORT: "8000"
+  MONGODB: "mongodb+srv://avinashashetty2004_db_user:aviatlas2004@cluster0.qojfs0l.mongodb.net"
+  DB_NAME: "IssueTicket"
+  JWT_SECRET: "iamgodgodisgreat"
+  # VITE_API_URL: "a5aaa8a4f8d254718980e20c61faae59-d6d91b7aec7150a5.elb.ap-south-1.amazonaws.com/api"

@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: zenofront-deployment
+  labels:
+    app: zenofront
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: zenofront
+  template:
+    metadata:
+      labels:
+        app: zenofront
+    spec:
+      containers:
+      - name: zenofront
+        image: avi03/zenofront:v1
+        ports:
+        - containerPort: 80
+        # env:
+        # - name: VITE_API_URL
+        #   valueFrom:
+        #     configMapKeyRef:
+        #       name: ticketback-config
+        #       key: VITE_API_URL

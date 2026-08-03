@@ -1,0 +1,43 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: zenoback-deployment
+  labels:
+    app: zenoback
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: zenoback
+  template:
+    metadata:
+      labels:
+        app: zenoback
+    spec:
+      containers:
+      - name: zenoback
+        image: avi03/zenobackend:v1
+        ports:
+        - containerPort: 8000
+        env:
+        - name: PORT
+          valueFrom:
+            configMapKeyRef:
+              name: zenoback-config
+              key: PORT
+        - name: MONGODB
+          valueFrom:
+            configMapKeyRef:
+              name: zenoback-config
+              key: MONGODB
+        - name: DB_NAME
+          valueFrom:
+            configMapKeyRef:
+              name: zenoback-config
+              key: DB_NAME
+        - name: JWT_SECRET
+          valueFrom:
+            configMapKeyRef:
+              name: zenoback-config
+              key: JWT_SECRET

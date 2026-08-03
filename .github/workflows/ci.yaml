@@ -54,7 +54,7 @@ jobs:
 
       - name: Update Helm values.yaml
         run: |
-          sed -i "s/tag:.*/tag: ${TAG}/" helm/my-chart/values.yaml
+          sed -i "s/tag:.*/tag: \"${TAG}\"/" helm/my-chart/values.yaml
 
       - name: Commit Helm Update
         run: |
@@ -63,3 +63,6 @@ jobs:
           git add helm/my-chart/values.yaml
           git commit -m "Update image tag to ${TAG}"
           git push
+
+
+# sed -i "s/tag:.*/tag: ${TAG}/" helm/my-chart/values.yaml
